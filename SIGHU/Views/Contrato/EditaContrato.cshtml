@@ -1,0 +1,81 @@
+﻿@model SIGHU.Models.Contratos.ViewContratos
+@{
+    ViewBag.Title = "Edita Contrato";
+    List<SIGHU.Models.MENU> lstMenu = ViewBag.MenuPage;
+    List<SIGHU.Models.Persona.ddPersona> lstPersona = ViewBag.Personas;
+    List<SIGHU.Models.CARGO> lstCargos = ViewBag.Cargos;
+    List<SIGHU.Models.ARMA> lstArmas = ViewBag.Armas;
+    List<SIGHU.Models.VESTUARIO> lstVestuario = ViewBag.Vestuario;
+    List<SIGHU.Models.VEHICULO> lstVehiculos = ViewBag.Vehiculos;
+    List<SIGHU.Models.EMPRESA> lstEmpresas = ViewBag.Empresa;
+
+    string ruta = Session["Ruta"].ToString() + Session["FotoPerfil"];
+}
+
+@section Personal{
+    <img src="@ruta" alt="@Session["NomMostrar"].ToString()" class="img-rounded" style="width:150px; height:150px" />
+    <br /><br />
+    <h4>@Session["NomMostrar"].ToString()</h4>
+    <h4>@Session["Perfil"]</h4>
+    <a href="@Url.Action("Salir", "Home")" class="btn btn-danger">Salir</a>
+}
+
+@section Menu{
+    @foreach (var item in lstMenu)
+    {
+        if (item.url == "Contrato")
+        {
+            <a href="~/@item.url/Index" class="list-group-item active">@item.NMEnu</a>
+        }
+        else
+        {
+            <a href="~/@item.url/Index" class="list-group-item">@item.NMEnu</a>
+        }
+    }
+}
+
+<div class="blog-main">
+
+    @{Html.BeginForm("EditaContrato", "Contrato", FormMethod.Post);}
+    <fieldset>
+        @Html.HiddenFor(c => c.IdContrato)
+        <legend>Edita Contrato</legend>
+        <div class="form-group">
+            <label> Empresa: </label>
+            @Html.DropDownListFor(c => c.IdEmpresa, new SelectList(lstEmpresas, "IdEmpresa", "NombreEmpresa"), "Seleccione...", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Persona: </label>
+            @Html.DropDownListFor(c => c.IdPersona, new SelectList(lstPersona, "IdPersona", "Nombres"), "Seleccione...", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Cargo: </label>
+            @Html.DropDownListFor(c => c.IdCargo, new SelectList(lstCargos, "IdCargo", "NombreC"), "Seleccione...", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Vestuario: </label>
+            @Html.DropDownListFor(c => c.IdVestuario, new SelectList(lstVestuario, "IdVestuario", "NVestuario"), "Seleccione...", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Vehiculo: </label>
+            @Html.DropDownListFor(c => c.IdVehiculo, new SelectList(lstVehiculos, "IdVehiculo", "MarcaVehiculo"), "Seleccione...", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Arma: </label>
+            @Html.DropDownListFor(c => c.IdArma, new SelectList(lstArmas, "IdArma", "TipoArma"), "Seleccione...", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Experiencia Laboral (Años): </label>
+            @Html.TextBoxFor(c => c.AniosExpLab, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Contrato Actual: </label>
+            @Html.CheckBoxFor(c => c.Actual)
+        </div>
+        <div class="form-group" style="color:red;">
+            @Html.ValidationSummary(false, "")
+        </div>
+        <button class="btn btn-danger"> Guardar </button>
+    </fieldset>
+    @{Html.EndForm();}
+</div>

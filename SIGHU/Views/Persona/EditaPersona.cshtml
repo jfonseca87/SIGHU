@@ -1,0 +1,164 @@
+﻿@model SIGHU.Models.PERSONA
+@{
+    ViewBag.Title = "Edita Persona";
+    List<SIGHU.Models.MENU> lstMenu = ViewBag.MenuPage;
+    List<SIGHU.Models.Adjunto.ViewListAdjuntos> lstAdjuntos = ViewBag.Adjuntos;
+    string ruta = Session["Ruta"].ToString() + Session["FotoPerfil"];
+    string rutac = Session["Rutac"].ToString();
+}
+
+@section Personal{
+    <img src="@ruta" alt="@Session["NomMostrar"].ToString()" class="img-rounded" style="width:150px; height:150px" />
+    <br /><br />
+    <h4>@Session["NomMostrar"].ToString()</h4>
+    <h4>@Session["Perfil"]</h4>
+    <a href="@Url.Action("Salir", "Home")" class="btn btn-danger">Salir</a>
+}
+
+@section Menu{
+    @foreach (var item in lstMenu)
+    {
+        if (item.url == "Persona")
+        {
+            <a href="~/@item.url/Index" class="list-group-item active">@item.NMEnu</a>
+        }
+        else
+        {
+            <a href="~/@item.url/Index" class="list-group-item">@item.NMEnu</a>
+        }
+    }
+}
+
+<div class="blog-main">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Datos</a></li>
+        <li role="presentation"><a href="#adjuntos" aria-controls="adjuntos" role="tab" data-toggle="tab">Adjuntos</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+            @{Html.BeginForm("EditaPersona", "Persona", FormMethod.Post);}
+            <fieldset>
+                @Html.HiddenFor(p => p.IdPersona)
+                @Html.HiddenFor(p => p.FotoPerfil)
+                @Html.HiddenFor(p => p.UsuarioAsig)
+                <legend></legend>
+                <div class="form-group">
+                    <label> Número Doc: </label>
+                    @Html.TextBoxFor(p => p.NumeroDoc, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Tipo Doc: </label>
+                    @Html.DropDownListFor(p => p.TipoDoc, new SelectList(new[] { new SelectListItem { Value = "CC", Text = "Cedula de Ciudadania"},
+    new SelectListItem { Value="CE", Text="Cedula de Extranjeria"}, new SelectListItem { Value="TI", Text="Tarjeta de Identidad"}}, "Value", "Text"),
+    "Seleccione...", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Nombres: </label>
+                    @Html.TextBoxFor(p => p.NombreP, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Apellidos: </label>
+                    @Html.TextBoxFor(p => p.ApellidoP, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Dirección: </label>
+                    @Html.TextBoxFor(p => p.Direccion, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Teléfono: </label>
+                    @Html.TextBoxFor(p => p.Telefono, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Celular: </label>
+                    @Html.TextBoxFor(p => p.Celular, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Mail: </label>
+                    @Html.TextBoxFor(p => p.Mail, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Edad: </label>
+                    @Html.TextBoxFor(p => p.Edad, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Lugar Nacimiento: </label>
+                    @Html.TextBoxFor(p => p.LugarNac, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Estado Civil: </label>
+                    @Html.DropDownListFor(p => p.EstadoCivil, new SelectList(new[] { new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)"},
+                                  new SelectListItem { Value="Casado(a)", Text="Casado(a)"}, new SelectListItem { Value="Viudo(a)", Text="Viudo(a)"},
+                                  new SelectListItem { Value="U. Libre", Text="Unión Libre"}}, "Value", "Text"), "Seleccione...", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Nacionalidad: </label>
+                    @Html.TextBoxFor(p => p.Nacionalidad, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> RH: </label>
+                    @Html.DropDownListFor(p => p.RH, new SelectList(new[] { new SelectListItem { Value = "A+", Text = "A+"},
+                                  new SelectListItem { Value="A-", Text="A-"}, new SelectListItem { Value="B+", Text="B+"},
+                                  new SelectListItem { Value="B-", Text="B-"}, new SelectListItem { Value="AB+", Text="AB+"},
+                                  new SelectListItem { Value="AB-", Text="AB-"}, new SelectListItem { Value="O+", Text="O+"},
+                                  new SelectListItem { Value="O-", Text="O-"}}, "Value", "Text"), "Seleccione...", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label> Género: </label>
+                    @Html.DropDownListFor(p => p.Genero, new SelectList(new[] { new SelectListItem { Value = "M", Text = "Masculino"},
+                                  new SelectListItem { Value="F", Text="Femenino"}}, "Value", "Text"), "Seleccione...", new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label> Nivel Académico: </label>
+                    @Html.DropDownListFor(p => p.NivelAcademico, new SelectList(new[] { new SelectListItem { Value = "PI", Text = "Primaria"},
+                                  new SelectListItem { Value="BA", Text="Bachillerato"}, new SelectListItem { Value="UN", Text="Universitario"}},
+                                  "Value", "Text"), "Seleccione...", new { @class = "form-control" })
+                </div>
+                <div class="form-group" style="color:red;">
+                    @Html.ValidationSummary(false, "")
+                </div>
+                <button class="btn btn-danger"> Guardar </button>
+            </fieldset>
+            @{Html.EndForm();}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="adjuntos">
+            <br /><br />
+            <button class="btn btn-danger" id="btnAdjuntos" data-ruta="@rutac" data-id="@Model.IdPersona"> Cargar Adjunto </button>
+            <hr />
+            <div class="table-responsive" style="font-size: small;">
+                <table id="table" class="table table-bordered table-condensed table-hover" style="width:600px">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Código</th>
+                            <th class="text-center">Tipo </th>
+                            <th class="text-center">Archivo </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in lstAdjuntos)
+                        {
+                            <tr>
+                                <td>@item.Codigo</td>
+                                <td>@item.Tipo</td>
+                                <td>@item.Nombre</td>
+                                <td style="text-align:center;">
+                                    <a href="@Url.Action("DescargaAdjunto", "Adjunto", new { @id = item.idAdjunto })" alt="Descargar" title="Descargar">
+                                        <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                                    </a>
+                                    <a href="@Url.Action("EliminaAdjunto", "Adjunto", new { @id = item.idAdjunto })" alt="Eliminar" title="Eliminar" onclick="if(!confirm('Esta seguro(a) de eliminar este Adjunto?')) return false;">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    
+</div>
+

@@ -1,0 +1,59 @@
+﻿@model SIGHU.Models.Home.ViewIngresar
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>SIGHU</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/Assets/css/signin.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container text-center img-responsive">
+        <img src="~/Assets/Images/Logo SIGHU.jpg" />
+    </div>
+    <div class="container">
+        @{Html.BeginForm("Ingresar", "Home", FormMethod.Post, new { @class = "form-signin" });}
+            <label for="Usuario" class="sr-only">Usuario</label>
+            @Html.TextBoxFor(i => i.Usuario, new { @class = "form-control", @placeholder="Usuario" })
+            <label for="inputPassword" class="sr-only">Password</label>
+            @Html.PasswordFor(i => i.Password, new { @class = "form-control", @placeholder = "Password" })
+            <button class="btn btn-lg btn-danger btn-block" type="submit">Ingresar</button>
+            <br />
+            <div class="form-group" style="color:red;">
+                <label>@ViewBag.Mensaje</label>
+                @Html.ValidationSummary(false, "")
+            </div>
+        @{Html.EndForm();}
+    </div> 
+    <br /><br />
+    <div class="container text-center img-responsive">
+        <img src="~/Assets/Images/login_img.jpg" alt="Imagen Seguridad" class="img-circle" style="width:400px; height:250px;" />
+    </div>
+</body>
+</html>
+
+<script src="~/Assets/js/jquery.js"></script>
+<script src="~/Assets/js/jquery.validate.min.js"></script>
+<script src="~/Assets/js/jquery.validate.unobtrusive.min.js"></script>

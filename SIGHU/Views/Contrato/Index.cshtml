@@ -1,0 +1,67 @@
+﻿@model List<SIGHU.Models.Contratos.viewListContratos>
+@{
+    ViewBag.Title = "Contratos";
+    List<SIGHU.Models.MENU> lstMenu = ViewBag.MenuPage;
+    string ruta = Session["Ruta"].ToString() + Session["FotoPerfil"];
+}
+
+@section Personal{
+    <img src="@ruta" alt="@Session["NomMostrar"].ToString()" class="img-rounded" style="width:150px; height:150px" />
+    <br /><br />
+    <h4>@Session["NomMostrar"].ToString()</h4>
+    <h4>@Session["Perfil"]</h4>
+    <a href="@Url.Action("Salir", "Home")" class="btn btn-danger">Salir</a>
+}
+
+@section Menu{
+    @foreach (var item in lstMenu)
+    {
+        if (item.url == "Contrato")
+        {
+            <a href="~/@item.url/Index" class="list-group-item active">@item.NMEnu</a>
+        }
+        else
+        {
+            <a href="~/@item.url/Index" class="list-group-item">@item.NMEnu</a>
+        }
+    }
+}
+
+<div class="blog-main">
+    <h2> CONTRATOS </h2>
+    <hr />
+    <a href="@Url.Action("NuevoContrato", "Contrato")" class="btn btn-danger">Nuevo Contrato</a>
+    <br /><br />
+    <div class="table-responsive" style="font-size: small;">
+        <table id="table" class="table table-bordered table-condensed table-hover" style="width:600px">
+            <thead>
+                <tr>
+                    <th class="text-center">DNI</th>
+                    <th class="text-center">Nombres</th>
+                    <th class="text-center">Cargo</th>
+                    <th class="text-center">Contrato No.</th>
+                    <th class="text-center">Vigente</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.NumDoc</td>
+                        <td>@item.Nombres</td>
+                        <td>@item.Cargo</td>
+                        <td>@item.Contrato</td>
+                        <td>@(item.Actual == 1 ? "Vigente" : "Terminado")</td>
+                        <td style="text-align:center;">
+                            <a href="@Url.Action("EditaContrato", "Contrato", new { @id = item.Contrato })" alt="Editar" title="Editar">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />

@@ -1,0 +1,57 @@
+﻿@model SIGHU.Models.VEHICULO
+@{
+    ViewBag.Title = "Nuevo Vehículo";
+    List<SIGHU.Models.MENU> lstMenu = ViewBag.MenuPage;
+    string ruta = Session["Ruta"].ToString() + Session["FotoPerfil"];
+}
+
+@section Personal{
+    <img src="@ruta" alt="@Session["NomMostrar"].ToString()" class="img-rounded" style="width:150px; height:150px" />
+    <br /><br />
+    <h4>@Session["NomMostrar"].ToString()</h4>
+    <h4>@Session["Perfil"]</h4>
+    <a href="@Url.Action("Salir", "Home")" class="btn btn-danger">Salir</a>
+}
+
+@section Menu{
+    @foreach (var item in lstMenu)
+    {
+        if (item.url == "Vehiculo")
+        {
+            <a href="~/@item.url/Index" class="list-group-item active">@item.NMEnu</a>
+        }
+        else
+        {
+            <a href="~/@item.url/Index" class="list-group-item">@item.NMEnu</a>
+        }
+    }
+}
+
+<div class="blog-main">
+
+    @{Html.BeginForm("NuevoVehiculo", "Vehiculo", FormMethod.Post);}
+    <fieldset>
+        <legend>Nuevo Vehículo</legend>
+        <div class="form-group">
+            <label> Tipo Vehículo: </label>
+            @Html.TextBoxFor(v => v.MedioTransporte, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Placa: </label>
+            @Html.TextBoxFor(v => v.PlacaVehiculo, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Módelo: </label>
+            @Html.TextBoxFor(v => v.ModeloVehiculo, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Marca: </label>
+            @Html.TextBoxFor(v => v.MarcaVehiculo, new { @class = "form-control" })
+        </div>
+        <div class="form-group" style="color:red;">
+            @Html.ValidationSummary(false, "")
+        </div>
+        <button class="btn btn-danger"> Guardar </button>
+    </fieldset>
+    @{Html.EndForm();}
+</div>

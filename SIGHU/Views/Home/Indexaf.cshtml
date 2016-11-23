@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Index";
+    List<SIGHU.Models.MENU> lstMenu = ViewBag.MenuPage;
+    string ruta = Session["Ruta"].ToString() + Session["FotoPerfil"];
+    string rutac = Session["Rutac"].ToString();
+}
+
+@section Personal{
+    <img src="@ruta" alt="@Session["NomMostrar"].ToString()" class="img-rounded" style="width:150px; height:150px" id="cambiaFoto" data-ruta="@rutac" data-id="@Session["IdUsuario"]" title="Cambiar Foto"/>
+    <br /><br />
+    <h4>@Session["NomMostrar"].ToString()</h4>
+    <h4>@Session["Perfil"]</h4>
+    <button class="btn btn-danger password" data-id="@Session["IdUsuario"]" data-ruta="@rutac"> Cambia Password </button> <br /><br />
+    <a href="@Url.Action("Salir", "Home")" class="btn btn-danger">Salir</a> 
+}
+
+@section Menu{
+    @foreach (var item in lstMenu)
+    {
+        <a href="~/@item.url/Index" class="list-group-item">@item.NMEnu</a>
+    }
+}
+
+<div class="blog-main">
+    <h2> SIGHU </h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu vestibulum dolor. Proin finibus quam at metus tincidunt hendrerit. Mauris vestibulum interdum odio, vel mattis tellus bibendum vitae. Aenean malesuada, ligula eu rutrum bibendum, nibh lectus pulvinar magna, ac pulvinar lectus eros a diam. Fusce in malesuada lorem. Curabitur fringilla odio ac rhoncus dignissim. Sed ac sodales dolor, id eleifend risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet risus non massa rutrum varius at id eros.
+        Nam aliquet mi vel nunc ultrices, nec porta arcu interdum. Mauris blandit arcu felis, non scelerisque nisi hendrerit convallis. Mauris cursus rutrum finibus. Nulla non vehicula metus, vel commodo dui. Donec lobortis id lacus sed sagittis. Fusce in turpis at diam tempus tincidunt. Suspendisse eget nunc odio. Vivamus iaculis, est sed dignissim congue, sapien odio vestibulum elit, faucibus ullamcorper mi nunc at ante. Aliquam erat volutpat. Etiam a lacinia lectus. Integer feugiat tellus at tortor elementum, quis pharetra metus rhoncus. Suspendisse suscipit ex vel malesuada efficitur. Maecenas commodo dictum metus non euismod. Aenean lorem orci, ultricies et efficitur a, imperdiet mollis urna.
+    </p>
+</div>

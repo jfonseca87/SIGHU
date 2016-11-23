@@ -1,0 +1,76 @@
+﻿@model List<SIGHU.Models.CARGO>
+@{
+    ViewBag.Title = "Cargos";
+    List<SIGHU.Models.MENU> lstMenu = ViewBag.MenuPage;
+    string ruta = Session["Ruta"].ToString() + Session["FotoPerfil"];
+}
+
+@section Personal{
+    <img src="@ruta" alt="@Session["NomMostrar"].ToString()" class="img-rounded" style="width:150px; height:150px" />
+    <br /><br />
+    <h4>@Session["NomMostrar"].ToString()</h4>
+    <h4>@Session["Perfil"]</h4>
+    <a href="@Url.Action("Salir", "Home")" class="btn btn-danger">Salir</a>
+}
+
+@section Menu{
+    @foreach (var item in lstMenu)
+    {
+        if (item.url == "Cargo")
+        {
+            <a href="~/@item.url/Index" class="list-group-item active">@item.NMEnu</a>
+        }
+        else
+        {
+            <a href="~/@item.url/Index" class="list-group-item">@item.NMEnu</a>
+        }
+    }
+}
+
+<div class="blog-main">
+    <h2> ARMAS </h2>
+    <hr />
+    <a href="@Url.Action("NuevoCargo", "Cargo")" class="btn btn-danger">Crear Cargo</a>
+    <br /><br />
+    <div class="table-responsive" style="font-size: small;">
+        <table id="table" class="table table-bordered table-condensed table-hover" style="width:600px">
+            <thead>
+                <tr>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Cargo</th>
+                    <th class="text-center">Activo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdCargo</td>
+                        <td>@item.NombreC</td>
+                        <td>@(item.Activo == 1 ? "SI" : "NO") </td>
+                        <td style="text-align:center;">
+                            <a href="@Url.Action("EditaCargo", "Cargo", new { @id = item.IdCargo })" alt="Editar" title="Editar">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </a>
+                            @if (item.Activo == 1)
+                            {
+                                <a href="@Url.Action("DesacCargo", "Cargo", new { @id = item.IdCargo })" alt="Desactivar" title="Desactivar" onclick="if(!confirm('Esta seguro(a) de desactivar el cargo?')) return false;">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("ActCargo", "Cargo", new { @id = item.IdCargo })" alt="Activar" title="Activar" onclick="if (!confirm('Esta seguro(a) de activar el cargo?')) return false;">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </a>
+                            }
+                            
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />

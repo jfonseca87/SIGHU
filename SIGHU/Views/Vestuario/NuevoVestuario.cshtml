@@ -1,0 +1,65 @@
+﻿@model SIGHU.Models.VESTUARIO
+@{
+    ViewBag.Title = "Nuevo Vestuario";
+    List<SIGHU.Models.MENU> lstMenu = ViewBag.MenuPage;
+    string ruta = Session["Ruta"].ToString() + Session["FotoPerfil"];
+}
+
+@section Personal{
+    <img src="@ruta" alt="@Session["NomMostrar"].ToString()" class="img-rounded" style="width:150px; height:150px" />
+    <br /><br />
+    <h4>@Session["NomMostrar"].ToString()</h4>
+    <h4>@Session["Perfil"]</h4>
+    <a href="@Url.Action("Salir", "Home")" class="btn btn-danger">Salir</a>
+}
+
+@section Menu{
+    @foreach (var item in lstMenu)
+    {
+        if (item.url == "Vestuario")
+        {
+            <a href="~/@item.url/Index" class="list-group-item active">@item.NMEnu</a>
+        }
+        else
+        {
+            <a href="~/@item.url/Index" class="list-group-item">@item.NMEnu</a>
+        }
+    }
+}
+
+<div class="blog-main">
+
+    @{Html.BeginForm("NuevoVestuario", "Vestuario", FormMethod.Post);}
+    <fieldset>
+        <legend>Nuevo Vestuario</legend>
+        <div class="form-group">
+            <label> Nombre Vestuario: </label>
+            @Html.TextBoxFor(v => v.NVestuario, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Talla Gorra: </label>
+            @Html.TextBoxFor(v => v.TGorra, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Talla Camisa: </label>
+            @Html.TextBoxFor(v => v.TCamisa, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Talla Pantalon: </label>
+            @Html.TextBoxFor(v => v.TPantalon, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Talla Chaqueta: </label>
+            @Html.TextBoxFor(v => v.TChaqueta, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Talla Zapatos: </label>
+            @Html.TextBoxFor(v => v.TZapatos, new { @class = "form-control" })
+        </div>
+        <div class="form-group" style="color:red;">
+            @Html.ValidationSummary(false, "")
+        </div>
+        <button class="btn btn-danger"> Guardar </button>
+    </fieldset>
+    @{Html.EndForm();}
+</div>

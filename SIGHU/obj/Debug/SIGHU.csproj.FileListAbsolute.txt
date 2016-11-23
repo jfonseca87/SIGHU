@@ -1,0 +1,70 @@
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\SIGHU.dll.config
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\SIGHU.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\SIGHU.pdb
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\EntityFramework.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\EntityFramework.SqlServer.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\Microsoft.Web.Infrastructure.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\Newtonsoft.Json.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Net.Http.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Net.Http.Formatting.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Net.Http.WebRequest.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.Helpers.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.Http.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.Http.WebHost.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.Mvc.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.Razor.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.WebPages.Deployment.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.WebPages.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.WebPages.Razor.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\EntityFramework.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\EntityFramework.SqlServer.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\Newtonsoft.Json.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Net.Http.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Net.Http.Formatting.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Net.Http.WebRequest.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.Helpers.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.Http.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.Http.WebHost.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.Mvc.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.Razor.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.WebPages.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.WebPages.Deployment.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\bin\System.Web.WebPages.Razor.xml
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\obj\Debug\SIGHU.csprojResolveAssemblyReference.cache
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\obj\Debug\SIGHU.dll
+d:\jlfr\mis documentos ( local )\visual studio 2013\Projects\SIGHU\SIGHU\obj\Debug\SIGHU.pdb
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\SIGHU.dll.config
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\SIGHU.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\SIGHU.pdb
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\EntityFramework.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\EntityFramework.SqlServer.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\Newtonsoft.Json.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Net.Http.Formatting.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.Helpers.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.Http.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.Http.WebHost.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.Mvc.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.Razor.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.WebPages.Deployment.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.WebPages.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.WebPages.Razor.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Net.Http.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\EntityFramework.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\EntityFramework.SqlServer.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\Newtonsoft.Json.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Net.Http.Formatting.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.Helpers.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.Http.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.Http.WebHost.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.Mvc.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.Razor.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.WebPages.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.WebPages.Deployment.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Web.WebPages.Razor.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\bin\System.Net.Http.xml
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\obj\Debug\SIGHU.csprojResolveAssemblyReference.cache
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\obj\Debug\SIGHU.dll
+C:\Users\JORGE-PC\Desktop\SIGHU\SIGHU\obj\Debug\SIGHU.pdb

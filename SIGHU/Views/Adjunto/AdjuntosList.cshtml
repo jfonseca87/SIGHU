@@ -1,0 +1,41 @@
+﻿@model List<SIGHU.Models.Adjunto.ViewListAdjuntos>
+
+@{
+    Layout = null;
+}
+
+<div class="table-responsive" style="font-size: small;">
+    <table id="table" class="table table-bordered table-condensed table-hover" style="width:600px">
+        <thead>
+            <tr>
+                <th class="text-center">Código</th>
+                <th class="text-center">Tipo </th>
+                <th class="text-center">Archivo </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Codigo</td>
+                    <td>@item.Tipo</td>
+                    <td>@item.Nombre</td>
+                    <td style="text-align:center;">
+                        <a href="@Url.Action("VerPersona", "Persona", new { @id = item.idAdjunto })" alt="Ver Detalle" title="Ver Detalle">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        </a>
+                        <a href="@Url.Action("EditaPersona", "Persona", new { @id = item.idAdjunto })" alt="Editar" title="Editar">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="@Url.Content("~/Assets/js/jquery.js")"></script>
+<script src="@Url.Content("~/Assets/js/bootstrap.min.js")"></script>
+<script src="@Url.Content("~/Assets/js/jquery.dataTables.min.js")"></script>
+<script src="@Url.Content("~/Assets/js/logic.js")"></script>

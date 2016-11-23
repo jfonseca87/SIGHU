@@ -1,0 +1,78 @@
+﻿@model List<SIGHU.Models.Usuario.ViewTableUsuario>
+@{
+    ViewBag.Title = "Usuarios";
+    List<SIGHU.Models.MENU> lstMenu = ViewBag.MenuPage;
+    string ruta = Session["Ruta"].ToString() + Session["FotoPerfil"];
+    string rutac = Session["Rutac"].ToString();
+}
+
+@section Personal{
+    <img src="@ruta" alt="@Session["NomMostrar"].ToString()" class="img-rounded" style="width:150px; height:150px" />
+    <br /><br />
+    <h4>@Session["NomMostrar"].ToString()</h4>
+    <h4>@Session["Perfil"]</h4>
+    <a href="@Url.Action("Salir", "Home")" class="btn btn-danger">Salir</a>
+}
+
+@section Menu{
+    @foreach (var item in lstMenu)
+    {
+        if (item.url == "Usuario")
+        {
+            <a href="~/@item.url/Index" class="list-group-item active">@item.NMEnu</a>
+        }
+        else
+        {
+            <a href="~/@item.url/Index" class="list-group-item">@item.NMEnu</a>
+        }
+    }
+}
+
+<div class="blog-main">
+    <h2> USUARIOS </h2>
+    <hr />
+    <a href="@Url.Action("NuevoUsuario", "Usuario")" class="btn btn-danger">Nuevo Usuario</a>
+    <br /><br />
+    <div class="table-responsive" style="font-size: small;">
+        <table id="table" class="table table-bordered table-condensed table-hover" style="width:600px">
+            <thead>
+                <tr>
+                    <th class="text-center">Documento</th>
+                    <th class="text-center">Nombres</th>
+                    <th class="text-center">Usuario</th>
+                    <th class="text-center">Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.NumDoc</td>
+                        <td>@item.Nombres</td>
+                        <td>@item.Usuario</td>
+                        <td>@(item.Activo == 1 ? "Activo" : "Inactivo" )</td>
+                        <td style="text-align:center;">
+                            <a href="javascript:void;" alt="Cambiar Password" title="Cambiar Password" data-id="@item.IdUsuario" class="cmbPassword" data-ruta="@rutac">
+                                <span class="glyphicon glyphicon-text-color" aria-hidden="true"></span>
+                            </a>
+                            @if (item.Activo == 1)
+                            {
+                                <a href="@Url.Action("DesUsuario", "Usuario", new { @id = item.IdUsuario })" alt="Desactivar" title="Desactivar" onclick="if(!confirm('Esta seguro(a) de desactivar el usuario?')) return false;">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("ActUsuario", "Usuario", new { @id = item.IdUsuario })" alt="Activar" title="Activar" onclick="if (!confirm('Esta seguro(a) de activar el usuario?')) return false;">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />

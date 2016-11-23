@@ -1,0 +1,70 @@
+﻿@model SIGHU.Models.PERSONA
+@{
+    ViewBag.Title = Model.NombreP +" "+ Model.ApellidoP;
+    List<SIGHU.Models.MENU> lstMenu = ViewBag.MenuPage;
+    string ruta = Session["Ruta"].ToString() + Session["FotoPerfil"];
+}
+
+@section Personal{
+    <img src="@ruta" alt="@Session["NomMostrar"].ToString()" class="img-rounded" style="width:150px; height:150px" />
+    <br /><br />
+    <h4>@Session["NomMostrar"].ToString()</h4>
+    <h4>@Session["Perfil"]</h4>
+    <a href="@Url.Action("Salir", "Home")" class="btn btn-danger">Salir</a>
+}
+
+@section Menu{
+    @foreach (var item in lstMenu)
+    {
+        if (item.url == "Persona")
+        {
+            <a href="~/@item.url/Index" class="list-group-item active">@item.NMEnu</a>
+        }
+        else
+        {
+            <a href="~/@item.url/Index" class="list-group-item">@item.NMEnu</a>
+        }
+    }
+}
+
+<div class="blog-main">
+    <div class="panel panel-danger">
+        <div class="panel-body">
+            @(Model.NombreP + " " + Model.ApellidoP + " - " + Model.NumeroDoc)
+        </div>
+        <div class="panel-footer">
+            <label><b>Tipo Documento: </b></label>
+            @(Model.TipoDoc == "CC" ? "Cedula de Ciudadania" : Model.TipoDoc == "CE" ? "Cedula de Extranjeria": "Tarjeta de Identidad")
+            <br />
+            <label><b>Dirección: </b></label>
+            @Model.Direccion
+            <br />
+            <label><b>Teléfono: </b></label>
+            @Model.Telefono
+            <br />
+            <label><b>Celular: </b></label>
+            @Model.Celular
+            <br />
+            <label><b>Mail: </b></label>
+            @Model.Mail
+            <br />
+            <label><b>Edad: </b></label>
+            @Model.Edad
+            <br />
+            <label><b>Género: </b></label>
+            @(Model.Genero == "M" ? "Masculino" : "Femenino" )
+            <br />
+            <label><b>Lugar Nacimiento: </b></label>
+            @Model.LugarNac
+            <br />
+            <label><b>Nacionalidad: </b></label>
+            @Model.Nacionalidad
+            <br />
+            <label><b>RH: </b></label>
+            @Model.RH
+            <br />
+            <label><b>Nivel Educativo: </b></label>
+            @(Model.NivelAcademico == "PI" ? "Primaria" : Model.NivelAcademico == "BA" ? "Bachillerato" : "Universitario" )
+        </div>
+    </div>
+</div>

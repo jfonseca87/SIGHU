@@ -1,0 +1,45 @@
+﻿@model SIGHU.Models.Adjunto.ViewNuevoAdjunto
+@{
+    ViewBag.Title = "Nuevo Adjunto";
+    Layout = null;
+    List<SIGHU.Models.GRUPO_ADJUNTO> lstGrupos = ViewBag.Grupos;
+    string rutac = Session["Rutac"].ToString();
+}
+
+@{Html.BeginForm("NuevoAdjunto", "Adjunto", FormMethod.Post, new { @enctype="multipart/form-data" });}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" style="text-align:center;">
+        Nuevo Adjunto
+        <i class="glyphicon glyphicon-plus"></i>
+    </h4>
+</div>
+<div class="modal-body">
+    <input type="hidden" id="ruta" name="ruta" data-ruta="@rutac" />
+    @Html.HiddenFor(a => a.IdPersona, new { @Id = ViewBag.Id, @Value=ViewBag.Id})
+    <div class="form-group">
+        <label> Grupo Adjunto: </label>
+        @Html.DropDownList("ddGrupos", new SelectList(lstGrupos, "IdGrupo", "NombreGrupo"), "Seleccione...", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label> Tipo Adjunto: </label>
+        @Html.DropDownListFor(a => a.IdTipoAdjunto, new SelectList(new[] { new SelectListItem { Value = "", Text = "Seleccione...", Selected = true } }, "Value", "Text"), new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        <label> Adjunto: </label>
+        @Html.TextBoxFor(a => a.RutaAdjunto, new { @type="file" })
+    </div>
+    <div class="form-group" style="color:red;">
+        <p class="validacion-usuario"></p>
+        @Html.ValidationSummary(false, "")
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+    <button type="submit" class="btn btn-danger" id="btnGuardaAdjunto"> Guardar </button>
+</div>
+@{Html.EndForm();}
+
+<script src="~/Assets/js/jquery.validate.min.js"></script>
+<script src="~/Assets/js/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Assets/js/logic.js"></script>
